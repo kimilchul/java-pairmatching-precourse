@@ -16,7 +16,6 @@ public enum Level {
     }
 
     // 추가 기능 구현
-
     public static Level makeLevel(String level){
         for (Level target : Level.values()) {
             String name = target.name;

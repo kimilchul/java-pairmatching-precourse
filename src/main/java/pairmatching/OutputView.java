@@ -1,2 +1,4 @@
-package pairmatching;public class OutputView {
+package pairmatching;
+
+public class OutputView {
 }
