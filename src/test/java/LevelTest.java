@@ -38,9 +38,9 @@ public class LevelTest {
     @DisplayName("올바르지 않은 문자열이 제공될 시 예외가 발생함")
     @MethodSource("provideIncorrectLevel")
     @ParameterizedTest
-    void LevelCreateFailTest(String course) {
+    void LevelCreateFailTest(String level) {
         assertThatThrownBy(() -> {
-            Level.makeLevel(course);
+            Level.makeLevel(level);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
