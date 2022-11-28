@@ -9,10 +9,10 @@ public class InputView {
     public PairMatchingDto readPairMatching(){
         StringTokenizer st = new StringTokenizer(Console.readLine());
 
-        Course.valueOf(st.nextToken());
-        Level.valueOf(st.nextToken());
-        st.nextToken();
+        Course course = Course.makeCourse(st.nextToken());
+        Level level = Level.makeLevel(st.nextToken());
+        Mission mission = Mission.makeMission(st.nextToken());
 
-        return null; //new PairMatchingDto();
+        return new PairMatchingDto(course,level,mission);
     }
 }
