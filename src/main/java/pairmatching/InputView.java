@@ -7,7 +7,8 @@ import java.util.StringTokenizer;
 public class InputView {
     //과정, 레벨, 미션을 입력받음 : 프론트엔드, 레벨1, 자동차경주
     public PairMatchingDto readPairMatching(){
-        StringTokenizer st = new StringTokenizer(Console.readLine());
+        String inputLine = Console.readLine();
+        StringTokenizer st = new StringTokenizer(inputLine.replaceAll(" ",""),",");
 
         Course course = Course.makeCourse(st.nextToken());
         Level level = Level.makeLevel(st.nextToken());
