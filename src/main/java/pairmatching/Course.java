@@ -3,18 +3,24 @@ package pairmatching;
 import java.util.regex.Pattern;
 
 public enum Course {
-    BACKEND("백엔드"),
-    FRONTEND("프론트엔드");
+    BACKEND("백엔드","backend-crew.md"),
+    FRONTEND("프론트엔드","frontend-crew.md");
 
     private String name;
+    private String fileName;
 
-    Course(String name) {
+    Course(String name,String fileName) {
         this.name = name;
+        this.fileName = fileName;
     }
 
     // 추가 기능 구현
     public String getName() {
         return name;
+    }
+
+    public String getFileName(){
+        return fileName;
     }
 
     public static Course makeCourse(String course) {
