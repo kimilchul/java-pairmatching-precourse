@@ -10,4 +10,16 @@ public class PairMatchingDto {
         this.level = level;
         this.mission = mission;
     }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public Level getLevel(){
+        return level;
+    }
+
+    public Mission getMission(){
+        return mission;
+    }
 }
