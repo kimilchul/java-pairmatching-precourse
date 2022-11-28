@@ -2,7 +2,10 @@ package pairmatching;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class PairMatching {
     private Course course;
@@ -21,7 +24,25 @@ public class PairMatching {
             this.crews = crewRepository.getCrews(course.getFileName());
     }
 
-    public List<String> getShuffledCrews(){
-        return Randoms.shuffle(this.crews);
+    private void shuffledCrews(){
+        this.crews = Randoms.shuffle(this.crews);
+    }
+
+    public List<List<String>> matchMaking(){
+        shuffledCrews();
+        List<List<String>> matchedCrews = new LinkedList<>();
+        Stack<String> stack = new Stack();
+        Iterator<String> crew = crews.listIterator();
+        while (crew.hasNext()){
+            stack.push(crew.next());
+            if (stack.size()==2){
+                List<String> pair = List.of(stack.pop(),stack.pop());
+                matchedCrews.add(pair);
+            }
+        }
+        if (!stack.isEmpty()){
+            matchedCrews.get(matchedCrews.size()-1).add(stack.pop());
+        }
+        return  matchedCrews;
     }
 }
